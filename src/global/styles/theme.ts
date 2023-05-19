@@ -1,14 +1,18 @@
 export default {
   fonts: {
-    text: 'Poppins_400Regular',
-    bold: 'Poppins_700Bold'
+    light: 'Poppins-ExtraLight',
+    medium: 'Poppins-Medium',
+    regular: 'Poppins-Regular',
+    bold: 'Poppins-Bold',  
   },
+
   colors: {
     background: '#fff',
     text: '#050617',
     light_text: 'rgba(23, 23, 27, 0.6)',
     detail: '#747476',
   },
+
   backgroundCard: {
     grass: '#8BBE8A',
     fire: '#FFA756',

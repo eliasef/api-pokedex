@@ -18,7 +18,7 @@ export function Welcome() {
 
 
                 <S.Title>Bem-vindo!</S.Title>
-                <S.SubTitle>Encontre todos os pokémons em um só lugar</S.SubTitle>
+                <S.SubTitle>Encontre todos os pokémons em um só lugar!</S.SubTitle>
             </S.Content>
             <S.Footer>
                 <Button title="Iniciar" />

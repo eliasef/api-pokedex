@@ -52,10 +52,10 @@ export const Title = styled.Text`
 
 export const SubTitle = styled.Text`
     ${({ theme }: { theme: any }) => css`
-        font-size: 16px;
+        font-size: 14px;
         margin-top: 20px;
         color: ${theme.colors.background};
-        font-family: ${theme.fonts.text};
+        font-family: ${theme.fonts.regular};
     `}
 `;
 

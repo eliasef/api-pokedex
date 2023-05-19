@@ -15,7 +15,7 @@ export const Title = styled.Text`
     ${({ theme }: { theme: any }) => css`
         font-size: 14px;
         color: ${theme.colors.background};
-        font-family: ${theme.fonts.text};
+        font-family: ${theme.fonts.regular};
     `}
 `
 
