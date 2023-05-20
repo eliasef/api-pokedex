@@ -2,9 +2,9 @@ import { ThemeProvider } from "styled-components";
 import theme from "./src/global/styles/theme";
 import AppLoading from "expo-app-loading";
 import { useFonts } from "@expo-google-fonts/poppins";
+import { Routes } from "./src/routes";
 
-import { Welcome } from "./src/pages/Welcome";
-import { Home } from "./src/pages/Home";
+
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -20,8 +20,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-    <Welcome /> 
-    {/* <Home /> */}
+      <Routes />
     </ThemeProvider>
   );
 }
