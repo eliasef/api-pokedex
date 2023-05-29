@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components/native";
 
 export const Container = styled.TouchableOpacity`
-   ${({ theme }: { theme: any }) => css`
+   ${({ theme }) => css`
         width: 30%;
         height: 50px;
         background-color: ${theme.boxType.water};
@@ -12,7 +12,7 @@ export const Container = styled.TouchableOpacity`
 `
 
 export const Title = styled.Text`
-    ${({ theme }: { theme: any }) => css`
+    ${({ theme }) => css`
         font-size: 14px;
         color: ${theme.colors.background};
         font-family: ${theme.fonts.regular};

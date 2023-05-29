@@ -80,7 +80,7 @@ export function Home() {
                     }} />
                 )}
             />
-            
+
             <Button title="Carregar mais" onPress={handleLoadMore} />
         </S.Container>
     );

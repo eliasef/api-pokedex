@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components/native"
 
 export const Container = styled.View`
-    ${({ theme }: { theme: any }) => css`
+    ${({ theme }) => css`
     flex: 1;
     background: ${theme.backgroundCard.water};
   `}
@@ -14,7 +14,7 @@ export const Content = styled.View`
 `;
 
 export const WrapperAnimation = styled.View`
-    ${({ theme }: { theme: any }) => css`
+    ${({ theme }) => css`
         width: 200px;
         height: 300px;
         background-color: ${theme.boxType.water};
@@ -30,7 +30,7 @@ export const WrapperImage = styled.View`
 `;
 
 export const Footer = styled.View`
-    ${({ theme }: { theme: any }) => css`
+    ${({ theme }) => css`
         justify-content: center;
         align-items: center;
         border-top-right-radius: 20px;
@@ -42,7 +42,7 @@ export const Footer = styled.View`
 `;
 
 export const Title = styled.Text`
-    ${({ theme }: { theme: any }) => css`
+    ${({ theme }) => css`
         font-size: 40px;
         color: ${theme.colors.background};
         margin-top: 20px;
@@ -51,7 +51,7 @@ export const Title = styled.Text`
 `;
 
 export const SubTitle = styled.Text`
-    ${({ theme }: { theme: any }) => css`
+    ${({ theme }) => css`
         font-size: 14px;
         margin-top: 20px;
         color: ${theme.colors.background};

@@ -8,7 +8,7 @@ type TypeProps = {
 };
 
 export const Header = styled.View<TypeProps>`
-  ${({ theme, type }: { theme: any, type: any }) => css`
+  ${({ theme, type }) => css`
     background-color: ${theme.backgroundCard[type]};
     height: 340px;
     padding: 20px;
@@ -44,7 +44,7 @@ export const Content = styled.View`
 `;
 
 export const PokemonId = styled.Text`
-    ${({ theme }: { theme: any }) => css`
+    ${({ theme }) => css`
       font-size: 16px;
       line-height: 19px;
       font-style: normal;
@@ -54,7 +54,7 @@ export const PokemonId = styled.Text`
 `;
 
 export const PokemonName = styled.Text`
-    ${({ theme }: { theme: any }) => css`
+    ${({ theme }) => css`
       text-transform: capitalize;
       font-size: normal;
       font-weight: bold;
@@ -69,7 +69,7 @@ export const PokemonTypeContainer = styled.View`
 `;
 
 export const PokemonType = styled.View<TypeProps>`
-    ${({ theme, type }: { theme: any, type: any }) => css`
+    ${({ theme, type }) => css`
       width: 61px;
       height: 25px;
       background: ${theme.boxType[type]};
@@ -82,7 +82,7 @@ export const PokemonType = styled.View<TypeProps>`
 `;
 
 export const PokemonTypeText = styled.Text`
-    ${({ theme }: { theme: any }) => css`
+    ${({ theme }) => css`
       color: ${theme.colors.background};
       font-weight: 500;
       font-size: 12px;
@@ -99,7 +99,7 @@ export const DotsImage = styled.View`
 `;
 
 export const Container = styled.View`
-    ${({ theme }: { theme: any }) => css`
+    ${({ theme }) => css`
       flex: 1;
       padding: 20px;
       background-color: ${theme.colors.background};
@@ -110,7 +110,7 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text<TypeProps>`
-    ${({ theme, type }: { theme: any, type: any }) => css`
+    ${({ theme, type }) => css`
       font-style: normal;
       font-weight: bold;
       font-size: 16px;
@@ -128,7 +128,7 @@ export const StatusBar = styled.View`
 `;
 
 export const Attributes = styled.Text`
-    ${({ theme }: { theme: any }) => css`
+    ${({ theme }) => css`
       font-style: normal;
       font-weight: 500;
       font-size: 12px;
@@ -140,7 +140,7 @@ export const Attributes = styled.Text`
 `;
 
 export const AttributeValue = styled.Text`
-    ${({ theme }: { theme: any }) => css`
+    ${({ theme }) => css`
       font-style: normal;
       font-weight: normal;
       font-size: 16px;
@@ -158,7 +158,7 @@ export const ContentBar = styled.View`
 export const ProgressBar = styled(Progress.Bar)<TypeProps>``;
 
 export const Ability = styled.Text`
-    ${({ theme }: { theme: any }) => css`
+    ${({ theme }) => css`
       font-style: normal;
       font-weight: normal;
       font-size: 16px;
@@ -168,4 +168,13 @@ export const Ability = styled.Text`
       margin-left: 20px;
       text-transform: capitalize;
   `}   
+`;
+
+export const Loading = styled.Image`
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-95px, -75.5px);
 `;
