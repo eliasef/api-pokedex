@@ -1,6 +1,6 @@
 import React from "react";
 import dotsImage from '../../assets/img/dots.png';
-import pokeball from '../../assets/img/pokeballCard.png';
+import pokeballCard from '../../assets/img/pokeballCard.png';
 import * as S from './styles'
 import { TouchableOpacityProps } from "react-native";
 import { FadeAnimation } from "../FadeAnimation";
@@ -42,7 +42,7 @@ export function Card({ data, ...rest }: Props) {
 
 
             <S.RightSide>
-                <S.PokeballDetail source={pokeball} />
+                <S.PokeballDetail source={pokeballCard} />
                 <FadeAnimation>
                     <S.PokemonImage
                         source={{

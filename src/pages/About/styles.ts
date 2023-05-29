@@ -133,6 +133,7 @@ export const Attributes = styled.Text`
       font-weight: 500;
       font-size: 12px;
       line-height: 14px;
+      width: 110px;
       text-transform: capitalize;
       color: ${theme.colors.light_text};
   `} 
@@ -155,3 +156,16 @@ export const ContentBar = styled.View`
 `;
 
 export const ProgressBar = styled(Progress.Bar)<TypeProps>``;
+
+export const Ability = styled.Text`
+    ${({ theme }: { theme: any }) => css`
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 19px;
+      padding: 10px 20px;
+      color: ${theme.colors.detail};
+      margin-left: 20px;
+      text-transform: capitalize;
+  `}   
+`;

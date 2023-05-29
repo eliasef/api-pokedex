@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FlatList } from "react-native";
+import { FlatList, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import pokeball from '../../assets/img/pokeball.png';
@@ -13,50 +13,52 @@ type Request = {
 };
 
 export function Home() {
+    const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+    const [offset, setOffset] = useState(0);
 
-    const [pokemons, setPokemons] = useState<Pokemon[]>([])
+    const { navigate } = useNavigation();
 
-    const { navigate } = useNavigation()
     function handleNavigation(pokemonId: number) {
         navigate('About', {
             pokemonId,
-        })
+        });
+    }
+
+    async function getAllPokemon(offset: number) {
+        const response = await api.get(`/pokemon?offset=${offset}&limit=20`);
+        const { results } = response.data;
+
+        const payloadPokemons = await Promise.all(
+            results.map(async (pokemon: Pokemon) => {
+                const { id, types } = await getMoreInfo(pokemon.url);
+
+                return {
+                    name: pokemon.name,
+                    id,
+                    types
+                };
+            })
+        );
+
+        setPokemons(payloadPokemons);
+    }
+
+    async function getMoreInfo(url: string): Promise<Request> {
+        const response = await api.get(url);
+        const { id, types } = response.data;
+
+        return {
+            id, types
+        };
     }
 
     useEffect(() => {
-        async function getAllPokemon() {
-            const response = await api.get('/pokemon');
-            const { results } = response.data;
+        getAllPokemon(offset);
+    }, [offset]);
 
-            const payloadPokemons = await Promise.all(
-                results.map(async (pokemon: Pokemon) => {
-                    const { id, types } = await getMoreInfo(pokemon.url)
-                    // aqui já resgato id e types
-
-                    return {
-                        name: pokemon.name,
-                        id,
-                        types
-                    }
-                })
-            );
-
-            setPokemons(payloadPokemons)
-        };
-
-        async function getMoreInfo(url: string): Promise<Request> {
-            const response = await api.get(url);
-            // get é uma requisição, é como se fosse pesquisando na url
-            // entra na url do pokemon específico
-            const { id, types } = response.data;
-
-            return {
-                id, types
-            }
-        }
-
-        getAllPokemon();
-    }, []);
+    function handleLoadMore() {
+        setOffset(offset + 20);
+    }
 
     return (
         <S.Container>
@@ -72,12 +74,14 @@ export function Home() {
                 }}
                 data={pokemons}
                 keyExtractor={pokemon => pokemon.id.toString()}
-                renderItem={({item: pokemon}) => (
+                renderItem={({ item: pokemon }) => (
                     <Card data={pokemon} onPress={() => {
                         handleNavigation(pokemon.id)
                     }} />
                 )}
             />
+            
+            <Button title="Carregar mais" onPress={handleLoadMore} />
         </S.Container>
     );
-};
+}

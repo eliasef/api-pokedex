@@ -5,8 +5,8 @@ type PokemonType = {
 }
 
 export const PokemonCard = styled.TouchableOpacity<PokemonType>`
-  ${({ theme, type }: { theme: any, type: any }) => css`
-    background: ${theme.backgroundCard[type]};
+  ${({ theme, type }) => css`
+    background-color: ${theme.backgroundCard[type.toLowerCase()]};
     border-radius: 10px;
     margin-top: 30px;
     flex-direction: row;
@@ -52,16 +52,16 @@ export const PokemonContentType = styled.View`
 `;
 
 export const PokemonType = styled.View<PokemonType>`
-  ${({ theme, type }: { theme: any, type: any }) => css`
-      background: ${theme.boxType[type]};
-      padding: 5px;
-      width: 65px;
-      height: 25px;
-      border-radius: 3px;
-      margin-left: 5px;
-      margin-top: 5px;
-      justify-content: center;
-      align-items: center;
+  ${({ theme, type }) => css`
+    background-color: ${theme.boxType[type.toLowerCase()]};
+    padding: 5px;
+    width: 65px;
+    height: 25px;
+    border-radius: 3px;
+    margin-left: 5px;
+    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
   `}
 `;
 

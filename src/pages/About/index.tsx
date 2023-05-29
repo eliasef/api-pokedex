@@ -143,6 +143,12 @@ export function About() {
                             </S.ContentBar>
                         </S.StatusBar>
                     )}
+
+                    <S.Title type={pokemon.types[0].type.name}>Abilities</S.Title>
+
+                    {pokemon.abilities.map(currentAbility => <S.Ability>
+                        {currentAbility.ability.name}
+                    </S.Ability>)}
                 </S.Container>
             </ScrollView>
         }
