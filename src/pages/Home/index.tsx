@@ -1,25 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, Button } from "react-native";
+import { FlatList, Button, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import pokeball from '../../assets/img/pokeball.png';
-import { Card, Pokemon, PokemonType } from '../../components/Card'
-import * as S from './styles'
+import pokeball from "../../assets/img/pokeball.png";
+import { Card, Pokemon, PokemonType } from "../../components/Card";
+import * as S from "./styles";
 import api from "../../service/api";
 
 type Request = {
-    id: number,
-    types: PokemonType[]
+    id: number;
+    types: PokemonType[];
 };
 
 export function Home() {
     const [pokemons, setPokemons] = useState<Pokemon[]>([]);
     const [offset, setOffset] = useState(0);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [searchedPokemon, setSearchedPokemon] = useState<Pokemon | null>(null);
+    const [showLoadMoreButton, setShowLoadMoreButton] = useState(true); // Variável de estado para controlar a exibição do botão
 
     const { navigate } = useNavigation();
 
     function handleNavigation(pokemonId: number) {
-        navigate('About', {
+        navigate("About", {
             pokemonId,
         });
     }
@@ -35,7 +38,7 @@ export function Home() {
                 return {
                     name: pokemon.name,
                     id,
-                    types
+                    types,
                 };
             })
         );
@@ -48,8 +51,30 @@ export function Home() {
         const { id, types } = response.data;
 
         return {
-            id, types
+            id,
+            types,
         };
+    }
+
+    async function searchPokemon() {
+        if (!searchTerm) return;
+
+        try {
+            const response = await api.get(`/pokemon/${searchTerm.toLowerCase()}`);
+            const { id, types } = response.data;
+
+            setSearchedPokemon({
+                name: searchTerm.toLowerCase(),
+                id,
+                types,
+            });
+
+            // Ocultar o botão "Carregar mais"
+            setShowLoadMoreButton(false);
+        } catch (error) {
+            setSearchedPokemon(null);
+            console.log("Pokémon não encontrado");
+        }
     }
 
     useEffect(() => {
@@ -62,26 +87,46 @@ export function Home() {
 
     return (
         <S.Container>
-            <FlatList
-                ListHeaderComponent={
-                    <>
-                        <S.Header source={pokeball} />
-                        <S.Title>Pokédex</S.Title>
-                    </>
-                }
-                contentContainerStyle={{
-                    paddingHorizontal: 20
-                }}
-                data={pokemons}
-                keyExtractor={pokemon => pokemon.id.toString()}
-                renderItem={({ item: pokemon }) => (
-                    <Card data={pokemon} onPress={() => {
-                        handleNavigation(pokemon.id)
-                    }} />
-                )}
-            />
+            {searchedPokemon ? (
+                <Card
+                    data={searchedPokemon}
+                    onPress={() => handleNavigation(searchedPokemon.id)}
+                />
+            ) : (
+                <FlatList
+                    ListHeaderComponent={
+                        <>
+                            <S.Header source={pokeball} />
+                            <S.Title>Pokédex</S.Title>
+                            <S.SearchContainer>
+                                <S.SearchInput
+                                    style={S.SearchInput}
+                                    placeholder="Digite o nome do Pokémon"
+                                    value={searchTerm}
+                                    onChangeText={setSearchTerm}
+                                />
+                                <S.BtnSearch title="Buscar" onPress={searchPokemon} />
+                            </S.SearchContainer>
+                        </>
+                    }
+                    contentContainerStyle={{
+                        paddingHorizontal: 20,
+                    }}
+                    data={pokemons}
+                    keyExtractor={(pokemon) => pokemon.id.toString()}
+                    renderItem={({ item: pokemon }) => (
+                        <Card
+                            data={pokemon}
+                            onPress={() => handleNavigation(pokemon.id)}
+                        />
+                    )}
+                />
+            )}
 
-            <Button title="Carregar mais" onPress={handleLoadMore} />
+            {showLoadMoreButton && ( // Exibir o botão "Carregar mais" apenas quando showLoadMoreButton for true
+                <Button title="Carregar mais" onPress={handleLoadMore} />
+            )}
         </S.Container>
     );
 }
+

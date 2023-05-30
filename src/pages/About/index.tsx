@@ -4,7 +4,7 @@ import { Alert, ScrollView, View } from "react-native";
 import api from "../../service/api";
 import { useTheme } from "styled-components";
 import { Feather } from '@expo/vector-icons';
-import loadingCharmander from '../../assets/img/loadingMew.gif';
+import loading from '../../assets/img/loading.gif';
 import circle from '../../assets/img/circle.png';
 import dots from '../../assets/img/dots.png';
 import * as S from './styles';
@@ -95,7 +95,7 @@ export function About() {
     return <>
         <View style={{ flex: 1, backgroundColor: '#fff' }}>
             {load ? <>
-                <S.Loading source={loadingCharmander} />
+                <S.Loading source={loading} />
             </> :
                 <ScrollView style={{ flex: 1 }}>
                     <S.Header type={pokemon.types[0].type.name}>

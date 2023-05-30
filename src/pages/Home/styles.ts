@@ -28,3 +28,25 @@ export const Title = styled.Text`
       text-align: center;
   `}
 `;
+
+export const SearchContainer = styled.View`
+  margin-top: 6px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const SearchInput = styled.TextInput`
+  border-radius: 8px;
+  padding: 10px;
+  height: 40px;
+`;
+
+export const BtnSearch = styled.Button`
+`;
+
+export const BackButton = styled.TouchableOpacity`
+    position: absolute;
+    top: 70px;
+    left: 40px;
+`;
