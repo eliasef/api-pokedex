@@ -15,7 +15,7 @@
 
 ## 🤔 Sobre
 
-Projeto **Pokedex**, projeto feito para listar os pokemons da **api pokeapi**.
+App para listar, pesquisar e ver atributos de pokémons consumindo a **api pokeapi**.
 
 Layout baseado [Nesse projest](https://www.behance.net/gallery/95727849/Pokdex-App/modules/552909481)
 
