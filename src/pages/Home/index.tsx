@@ -116,10 +116,12 @@ export function Home() {
                     keyExtractor={(pokemon) => pokemon.id.toString()}
                     renderItem={({ item: pokemon }) => (
                         <Card
-                            data={pokemon}
-                            onPress={() => handleNavigation(pokemon.id)}
+                          key={pokemon.id.toString()} // Adicione esta linha
+                          data={pokemon}
+                          onPress={() => handleNavigation(pokemon.id)}
                         />
-                    )}
+                      )}
+                      
                 />
             )}
 
