@@ -49,7 +49,7 @@ O projeto foi feito utilizando das seguintes tecnologias
 - React Hooks & Props
 - Styled-Components
 - Typescript
-- Axios
+- Axios API
 - Reanimated V2
 
 ---
