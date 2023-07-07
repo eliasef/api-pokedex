@@ -36,6 +36,9 @@ segue alguns prints do projeto
   <img style="margin: 5px" alt="register" src="https://i.imgur.com/Kwlp4Mc.png" width="235">
   <img style="margin: 5px" alt="dashboard" src="https://i.imgur.com/b6BtanV.png" width="235">
 </div>
+<br>
+Você pode ver o vídeo do projeto clicando <a href="https://www.linkedin.com/feed/update/urn:li:activity:7069750964148199424/">aqui!</a> 
+
 
 ---
 
