@@ -29,7 +29,7 @@ Layout baseado [Nesse projest](https://www.behance.net/gallery/95727849/Pokdex-A
   </video>
 </div> -->
 
-segue alguns prints do projeto 
+Segue alguns prints do projeto:
 
 <div>
   <img style="margin: 5px" alt="login" src="https://i.imgur.com/Rh8Tdp8.png" width="230">
