@@ -23,14 +23,13 @@ Layout baseado [Nesse projest](https://www.behance.net/gallery/95727849/Pokdex-A
 
 ## 📱 Preview do projeto
 
-Segue o preview em video do projeto
+<!-- Segue o preview em vídeo do projeto -->
+<!-- <div>
+  <video width="200" autoplay="true" loop="true" controls src="./assets/pokedex.mp4">
+  </video>
+</div> -->
 
-<div>
-<video width="200" autoplay="true" loop="true" controls src="./assets/pokedex.mp4">
-</video>
-</div>
-
-segue alguns prints do projeto
+segue alguns prints do projeto 
 
 <div>
   <img style="margin: 5px" alt="login" src="https://i.imgur.com/Rh8Tdp8.png" width="230">
