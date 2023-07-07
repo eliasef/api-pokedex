@@ -49,6 +49,7 @@ O projeto foi feito utilizando das seguintes tecnologias
 - Expo
 - React Native
 - React Hooks & Props
+- React Navigation
 - Styled-Components
 - Typescript
 - Axios API
